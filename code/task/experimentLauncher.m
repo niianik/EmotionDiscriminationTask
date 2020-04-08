@@ -4,6 +4,8 @@ function experimentLauncher()
 % Project: Emotion Discrimination Task, part of CWT
 % Queries participant info, sets paths, and calls main.m
 %
+% -------------- PRESS ESC TO EXIT ---------------------
+%
 % Niia Nikolova
 % Last edit: 08/04/2020
 

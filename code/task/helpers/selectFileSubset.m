@@ -1,7 +1,11 @@
 function selectFileSubset(NFilesDesired)
 % function selectFileSubset
+% Project: Emotion Discrimination Task, part of CWT
 %
 % Select a subset of files from a folder
+%
+% Niia Nikolova
+% Last edit: 01/04/2020
 
 %% Define vars
 NFilesPerInd = 200;

@@ -4,6 +4,10 @@ function main(vars, scr)
 % Project: Emotion Discrimination Task, part of CWT
 % Main experimental script
 %
+% Input: 
+%   vars        struct with key parameters (most are deifne in loadParams.m)
+%   scr         struct with screen / display settings
+% 
 % Niia Nikolova
 % Last edit: 08/04/2020
 

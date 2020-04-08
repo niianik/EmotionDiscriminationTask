@@ -1,8 +1,15 @@
 function [scr] = displayConfig(scr)
-%function [scr] = displayConfig()
+%function [scr] = displayConfig(scr)
+%
+% Called by main.m
+% Input: 
+%   scr         struct with screen / display settings
+% 
+% Niia Nikolova
+% Last edit: 08/04/2020
 
 
-% Set-up screen
+%% Set-up screen
 if length(Screen('Screens')) > 1
     scr.ExternalMonitor = 1;% set to 1 for secondary monitor
     % N.B. It's not optimal to use external monitor for newer Win systems
@@ -29,11 +36,11 @@ else % Laptop
     scr.GammaGuess = 2.6;
 end
 
-% Not yet sure if we'll need colour correction
+% Colour correction
 PsychImaging('PrepareConfiguration');
 PsychImaging('AddTask', 'FinalFormatting', 'DisplayColorCorrection', 'SimpleGamma');
 
-scr.screenID = max(Screen('Screens'));
+scr.screenID = max(Screen('Screens'));              % Display on external monitor if there is one
 
 %% Colours and text params
 scr.BackgroundGray = GrayIndex(scr.screenID);

@@ -1,7 +1,8 @@
 %% Define parameters
 %
 % Project: Emotion Discrimination Task, part of CWT
-% Sets key parameters
+%
+% Sets key parameters, called by main.m
 %
 % Niia Nikolova
 % Last edit: 08/04/2020

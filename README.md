@@ -7,8 +7,7 @@ What you'll need:
  - ~ 40 minutes
 
 
-Please make sure that you have MATLAB and Psychtoolbox-3 (http://psychtoolbox.org/download.html) 
-installed, and that you have downloaded/cloned the 'EmotionDiscriminationTask' directory, 
+Please make sure that you have MATLAB, Statistics and Machine Learning Toolbox, and Psychtoolbox-3 (http://psychtoolbox.org/download.html) installed, and that you have downloaded/cloned the 'EmotionDiscriminationTask' directory, 
 and saved it to a folder. 
 
 The directory should contain the following:

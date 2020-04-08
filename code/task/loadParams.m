@@ -34,15 +34,17 @@ vars.InstructionEnd = 'You have completed the session. Thank you!';
 
 %% Stimuli
 % Stimuli
-vars.TaskPath = fullfile('.', 'code', 'task');   % from \ECG_root\Projects\in_progress\ConfidenceWeightingTask
-vars.StimFolder = fullfile('.', 'stimuli', 'MCSsubset', filesep);
-vars.StimSize = 7;                               % DVA                                      
-vars.StimsInDir = dir([vars.StimFolder, '*.tif']);    % list contents of 'stimuli' folder      
+vars.TaskPath = fullfile('.', 'code', 'task');          % from \EmotionDiscriminationTask\
+vars.StimFolder = fullfile('.', 'stimuli', filesep);
+vars.StimSize = 7;                                      % DVA                                      
+vars.StimsInDir = dir([vars.StimFolder, '*.tif']);      % list contents of 'stimuli' folder      
 % check if NFiles/Individual is the same
 for thisIndiv = 1 : vars.NIndividuals                
     NStimsCheck(thisIndiv) = length(dir([vars.StimFolder, '*', vars.StimIDs{thisIndiv}, '*']));  end
 if (range(NStimsCheck) ~= 0) || any(( NStimsCheck(:) ~= vars.NLevels))
-    disp('Error!! Unequal number of stimulus files per individual, or expected number of files does not match NLevels. Download stimulus folder again. ');  end
+    disp('Error!! Unequal number of stimulus files per individual, or expected number of files does not match NLevels. Download stimulus folder again. '); 
+    return
+end
 % Generate repeating list - string array with filenames
 vars.StimList = strings(length(vars.StimsInDir),1);
 for thisStim = 1:length(vars.StimsInDir)
@@ -51,7 +53,7 @@ end
 StimTrialList = repmat(vars.StimList,vars.NTrials,1);
 % Randomize order of stimuli & move sequential duplicates                     
 ntrials = length(StimTrialList);
-randomorder = Shuffle(length(StimTrialList), 'index');   %randperm(ntrials)   % Shuffle is faster than randperm
+randomorder = Shuffle(length(StimTrialList), 'index');   % Shuffle is faster than randperm
 vars.StimTrialList = StimTrialList(randomorder);
 for thisStim = 1:ntrials-1
     nextStim = thisStim+1;

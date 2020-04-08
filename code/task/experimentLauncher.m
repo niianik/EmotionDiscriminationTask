@@ -14,7 +14,6 @@ close all;clc;
 
 vars.exptName = 'EmotDiscrim';
 
-
 %% Do system checks
 if ispc
     % Windows: Skip internal synch checks                       
@@ -25,14 +24,14 @@ elseif ismac || isunix
 end
 
 % check working directory
-vars.workingDir = fullfile('ECG_root', 'Projects', 'in_progress', 'ConfidenceWeightingTask');
+vars.workingDir = fullfile('EmotionDiscriminationTask');
 currentFolder = pwd;
 correctFolder = contains(currentFolder, vars.workingDir);
 if ~correctFolder           % if we're not in the correct working directory, prompt
     disp(['Incorrect working directory. Please start from ', vars.workingDir]);return;
 end
 
-% Ask for subID, age, gender, and display details
+%% Ask for subID, age, gender, and display details
 vars.subNo = input('What is your subject number (given by the experimenter, e.g. 05)?   ');
 vars.subAge = input('What is your age (# in years, e.g. 35)?   ');
 vars.subGen = input('What is your gender (f or m)?   ', 's');
@@ -45,16 +44,8 @@ scr.MonitorHeight = input('Input your monitor height (cm): ');
 scr.MonitorWidth = input('Input your monitor width (cm): ');
 scr.ViewDist = input('Input your viewing distance (cm). This is usually around 40cm for laptops, and 75cm for desktop displays: ');
 
-% % Check if all needed parameters given
-% if nargin < 1
-%     % if no subID given, set subNo to 999 (test)
-%     vars.subNo = 999;
-% %     error('Must provide required input parameters: SubID');
-% elseif nargin == 1
-%     vars.subNo = subID;
-% end
 
-% Output
+%% Output
 vars.OutputFolder = fullfile('.', 'data', filesep);
 vars.DataFileName = strcat(vars.exptName, '_',num2str(vars.subNo), '_', date);   % name of data file to write to
 if isfile(strcat(vars.OutputFolder, vars.DataFileName, '.mat'))

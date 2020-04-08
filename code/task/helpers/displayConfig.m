@@ -30,8 +30,8 @@ else % Laptop
 end
 
 % Not yet sure if we'll need colour correction
-% PsychImaging('PrepareConfiguration');
-% PsychImaging('AddTask', 'FinalFormatting', 'DisplayColorCorrection', 'SimpleGamma');
+PsychImaging('PrepareConfiguration');
+PsychImaging('AddTask', 'FinalFormatting', 'DisplayColorCorrection', 'SimpleGamma');
 
 scr.screenID = max(Screen('Screens'));
 

@@ -1,2 +1,2 @@
-# faceDiscriminationTask
+# EmotionDiscriminationTask
  Emotion discrimination task

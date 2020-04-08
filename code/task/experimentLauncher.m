@@ -18,7 +18,8 @@ vars.exptName = 'EmotDiscrim';
 
 %% Do system checks
 if ispc
-    % Windows: Skip internal synch checks                       
+    % Windows: Skip internal synch checks, suppress warnings  
+    oldLevel = Screen('Preference', 'Verbosity', 1);
     Screen('Preference', 'SkipSyncTests', 1);
 elseif ismac || isunix
     % Mac/Unix    ## Not tested ###                  
@@ -59,4 +60,7 @@ if isfile(strcat(vars.OutputFolder, vars.DataFileName, '.mat'))
 end
 
 %% Start experiment
-main(vars, scr)
+main(vars, scr);
+
+% Restore PTB verbosity
+Screen('Preference', 'Verbosity', oldLevel);

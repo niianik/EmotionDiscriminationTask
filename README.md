@@ -22,7 +22,7 @@ the distance from which you will be viewing it.
 
 
 To begin the experiment, add the 'EmotionDiscriminationTask' directory to the MATLAB path and 
-run 'experimentLauncher.m'.
+run 'experimentLauncher.m' (located in ./code/task).
 
 
 Task description: 

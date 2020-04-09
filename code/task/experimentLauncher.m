@@ -19,7 +19,7 @@ vars.exptName = 'EmotDiscrim';
 %% Do system checks
 if ispc
     % Windows: Skip internal synch checks, suppress warnings  
-    oldLevel = Screen('Preference', 'Verbosity', 1);
+    oldLevel = Screen('Preference', 'Verbosity', 0);
     Screen('Preference', 'SkipSyncTests', 1);
 elseif ismac || isunix
     % Mac/Unix    ## Not tested ###                  

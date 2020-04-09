@@ -43,7 +43,7 @@ vars.StimsInDir = dir([vars.StimFolder, '*.tif']);      % list contents of 'stim
 for thisIndiv = 1 : vars.NIndividuals                
     NStimsCheck(thisIndiv) = length(dir([vars.StimFolder, '*', vars.StimIDs{thisIndiv}, '*']));  end
 if (range(NStimsCheck) ~= 0) || any(( NStimsCheck(:) ~= vars.NLevels))
-    disp('Error!! Unequal number of stimulus files per individual, or expected number of files does not match NLevels. Download stimulus folder again. '); 
+    disp('Error!! Unequal number of stimulus files per individual, or expected number of files does not match NLevels. Try once more, otherwise, download stimulus folder again. '); 
     return
 end
 % Generate repeating list - string array with filenames

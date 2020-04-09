@@ -45,7 +45,7 @@ SetupRand;
 
 %% Prepare to start
 AssertOpenGL;       % OpenGL? Else, abort
-% HideCursor;
+HideCursor;
 
 try
     %% Open screen window
@@ -60,7 +60,7 @@ try
     % Determine stim size in pixels
     scr.dist = scr.ViewDist;
     scr.width  = scr.MonitorWidth;
-    scr.resolution = scr.winRect(3);% (number of pixels of display in horizontal direction)
+    scr.resolution = scr.winRect(3);        % number of pixels of display in horizontal direction
     StimSizePix = angle2pix(scr, vars.StimSize);
     
     % Dummy calls to prevent delays
@@ -99,7 +99,7 @@ try
     for thisTrial = 1:vars.NTrialsTotal
         
         %% Read in this image, adjust size and show stimulus
-        % read stim image for this trial into matlab matrix 'imdata':
+        % read stim image for this trial into matrix 'imdata':
         StimFilePath = strcat(vars.StimFolder,char(vars.StimTrialList(thisTrial)));
         ImDataOrig = imread(char(StimFilePath));
         StimFileName = char(vars.StimTrialList(thisTrial));
@@ -112,24 +112,18 @@ try
         Results.Indiv(thisTrial) = StimFileName(8:10);
         Results.MorphLevel(thisTrial) = str2double(StimFileName(12:14));
         
-        % make texture image out of image matrix 'imdata'
+        % Make texture image out of image matrix 'imdata'
         ImTex = Screen('MakeTexture', scr.win, ImData);
         
-        % Draw texture image to backbuffer. It will be automatically
-        % centered in the middle of the display if you don't specify a
-        % different destination:
+        % Draw texture image to backbuffer
         Screen('DrawTexture', scr.win, ImTex);
-        
-        % Show stimulus on screen at next possible display refresh cycle,
-        % and record stimulus onset time in 'StimOn':
         [~, StimOn] = Screen('Flip', scr.win);
         
-        % while loop to show stimulus until StimT seconds elapsed.
+        % While loop to show stimulus until StimT seconds elapsed.
         while (GetSecs - StimOn) <= vars.StimT
             
             % KbCheck for Esc key
             if KeyCode(keys.Escape)==1
-                % Esc pressed procedure
                 % Save, mark the run
                 vars.RunSuccessfull = 0;
                 vars.DataFileName = ['Aborted_', vars.DataFileName];
@@ -166,7 +160,6 @@ try
                 Resp = 1;
                 ValidTrial(1) = 1;
             elseif KeyCode(keys.Escape)==1
-                % Esc pressed procedure
                 % Save, mark the run
                 Resp = 9;
                 vars.RunSuccessfull = 0;
@@ -174,7 +167,7 @@ try
                 experimentEnd(vars, scr, keys, Results);
                 return
             else
-                % ? DrawText: Please press a valid key...              <----- Update
+                % ? DrawText: Please press a valid key...          
             end
             
             [~, EndRT, KeyCode] = KbCheck;
@@ -184,7 +177,7 @@ try
         end
         
         % Compute response time
-        RT = (EndRT - StartRT);                                     % <----- Check RT!!
+        RT = (EndRT - StartRT);                                 
         
         % Write trial result to file
         Results.EmoResp(thisTrial) = Resp;
@@ -192,7 +185,6 @@ try
         
         %% Confidence rating
         % Rate your confidence: 1 Unsure, 2 Sure, 3 Very sure
-        % <---- Research scale for confidence rating / ask Camile!
         
         Screen('FillRect', scr.win, scr.BackgroundGray, scr.winRect);
         DrawFormattedText(scr.win, [vars.InstructionConf], 'center', 'center', scr.TextColour);
@@ -215,15 +207,14 @@ try
                 ConfRating = 3;
                 ValidTrial(2) = 1;
             elseif KeyCode(keys.Escape)==1
-                % Esc pressed procedure
-                % Save, mark the run                                 <----- Update
+                % Save, mark the run                               
                 ConfRating = 9;
                 vars.RunSuccessfull = 0;
                 vars.DataFileName = ['Aborted_', vars.DataFileName];
                 experimentEnd(vars, scr, keys, Results);
                 return
             else
-                % DrawText: Please press a valid key...              <----- Update
+                % DrawText: Please press a valid key...           
             end
             
             [~, EndConf, KeyCode] = KbCheck;
@@ -234,7 +225,7 @@ try
         end
         
         % Compute response time
-        ConfRatingT = (EndConf - StartConf);                       % <----- Check RT!!
+        ConfRatingT = (EndConf - StartConf);                    
         
         % Write trial result to file
         Results.ConfResp(thisTrial) = ConfRating;
@@ -253,7 +244,6 @@ try
         while (GetSecs - StartITI) <= vars.ITI(thisTrial)
             
             if KeyCode(keys.Escape)==1
-                % Esc pressed procedure
                 % Save, mark the run
                 vars.RunSuccessfull = 0;
                 vars.DataFileName = ['Aborted_', vars.DataFileName];
@@ -303,7 +293,7 @@ try
     disp(['Run complete. Results were saved as: ', vars.DataFileName]);
     
     % Cleanup at end of experiment - Close window, show mouse cursor, close
-    % result file, switch Matlab/Octave back to priority 0
+    % result file, switch back to priority 0
     sca;
     ShowCursor;
     fclose('all');

@@ -16,7 +16,7 @@ SelectedFilesN = zeros(NLevels, 1);
 SelectedFiles = strings(NLevels, 1);        % col array of strings for filenames
 
 % Target directory
-TaskPath = fullfile('.', 'code', 'task');   % from \ECG_root\Projects\in_progress\ConfidenceWeightingTask
+TaskPath = fullfile('.', 'code', 'task');   
 StimFolder = fullfile(TaskPath, 'stimuli', filesep);
 OutputDirName = ['SelectedStimuli_', date];
 cd(StimFolder);

@@ -30,7 +30,7 @@ end
 vars.workingDir = fullfile('EmotionDiscriminationTask');
 currentFolder = pwd;
 correctFolder = contains(currentFolder, vars.workingDir);
-if ~correctFolder           % if we're not in the correct working directory, prompt
+if ~correctFolder                   % if we're not in the correct working directory, prompt to change
     disp(['Incorrect working directory. Please start from ', vars.workingDir]);return;
 end
 

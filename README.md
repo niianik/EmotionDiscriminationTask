@@ -4,7 +4,7 @@ README
 
 What you'll need:
  - a ruler
- - ~ 40 minutes
+ - ~ 25-40 minutes
 
 
 Please make sure that you have MATLAB, Statistics and Machine Learning Toolbox, and Psychtoolbox-3 (http://psychtoolbox.org/download.html) installed, and that you have downloaded/cloned the 'EmotionDiscriminationTask' directory, 

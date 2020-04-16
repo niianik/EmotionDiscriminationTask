@@ -291,6 +291,9 @@ try
     % Save the data
     eval(['save ', strcat(vars.OutputFolder, vars.DataFileName), 'Results', 'vars', 'scr', 'keys' ]);
     disp(['Run complete. Results were saved as: ', vars.DataFileName]);
+    % and as .csv
+    csvName = strcat(vars.OutputFolder, vars.DataFileName, '.csv');
+    struct2csv(Results,csvName);
     
     % Cleanup at end of experiment - Close window, show mouse cursor, close
     % result file, switch back to priority 0
@@ -310,6 +313,10 @@ catch
     vars.RunSuccessfull = 0;
     vars.DataFileName = ['Error_',vars.DataFileName];
     save(strcat(vars.OutputFolder, vars.DataFileName),  'Results', 'vars', 'scr', 'keys' );
+    % and as .csv
+    csvName = strcat(vars.OutputFolder, vars.DataFileName, '.csv');
+    struct2csv(Results,csvName);
+    
     disp(['Run crashed. Results were saved as: ', vars.DataFileName]);
     disp(' ** Error!! ***')
     

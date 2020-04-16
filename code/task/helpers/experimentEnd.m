@@ -5,6 +5,10 @@ function experimentEnd(vars, scr, keys, Results)
 vars.RunSuccessfull = 0;
 save(strcat(vars.OutputFolder, vars.DataFileName),  'Results', 'vars', 'scr', 'keys' );
 disp(['Run was aborted. Results were saved as: ', vars.DataFileName]);
+% and as .csv
+csvName = strcat(vars.OutputFolder, vars.DataFileName, '.csv');
+struct2csv(Results,csvName);
+
 % Abort screen
 Screen('FillRect', scr.win, scr.BackgroundGray, scr.winRect);
 DrawFormattedText(scr.win, 'Experiment was aborted!', 'center', 'center', scr.TextColour);

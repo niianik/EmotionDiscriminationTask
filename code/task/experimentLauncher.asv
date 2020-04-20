@@ -43,12 +43,7 @@ if ~isfield(vars,'subNo') || isempty(vars.subNo)
     vars.subNo = 999;               % test
 end
 
-disp('=====================================================================================');
-disp('Now please enter your screen dimensions and viewing distance.');
-disp('If left blank, these will default to 16.5 x 23.5cm, 40cm viewing distance, which is approximate for a 13" laptop.');
-disp('Press ENTER to continue...');
-disp('=====================================================================================');
-pause
+disp('Now please enter your screen dimensions and viewing distance. ');
 scr.MonitorHeight = input('Input your monitor height (cm): ');
 scr.MonitorWidth = input('Input your monitor width (cm): ');
 scr.ViewDist = input('Input your viewing distance (cm). This is usually around 40cm for laptops, and 75cm for desktop displays: ');

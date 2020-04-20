@@ -10,8 +10,10 @@
 
 %% Experimental design
 % Design
+vars.ConfRating = 0;                                         % Confidence rating? (1 yes, 0 no)
+
 vars.NLevels = 10;                                           % N stimulus levels (face morph)
-vars.NTrials =  7;                                           % per morph level
+vars.NTrials =  12; %7;                                      % per morph level
 vars.StimIDs = {'f06', 'f24', 'm08', 'm31'};                 % IDs of individuals in stimulus set
 vars.NIndividuals = length(vars.StimIDs);                    % individuals
 vars.NTrialsTotal = vars.NTrials * vars.NLevels * vars.NIndividuals;        % N total trials
@@ -23,11 +25,22 @@ vars.ConfT = 5;      % sec
 vars.ITI_min = 1;    % variable ITI (1-2s)
 vars.ITI_max = 2; 
 vars.ITI = randInRange(vars.ITI_min, vars.ITI_max, [vars.NTrialsTotal,1]);
+if vars.ConfRating 
+    vars.PauseFreq = 50; else
+    vars.PauseFreq = 100; 
+end
 
 % Instructions
-vars.InstructionTask = 'Decide if the face presented on each trial is angry or happy. \n \n ANGRY - Left arrow key                         HAPPY - Right arrow key \n \n \n \n Then, rate how confident you are in your choice using the number keys. \n \n Unsure (1), Sure (2), and Very sure (3). \n \n Press ''Space'' to start...';
+switch vars.ConfRating
+    
+    case 1
+        vars.InstructionTask = 'Decide if the face presented on each trial is angry or happy. \n \n ANGRY - Left arrow key                         HAPPY - Right arrow key \n \n \n \n Then, rate how confident you are in your choice using the number keys. \n \n Unsure (1), Sure (2), and Very sure (3). \n \n Press ''Space'' to start...';
+        vars.InstructionConf = 'Rate your confidence \n \n Unsure (1)     Sure (2)     Very sure (3)';
+    
+    case 0
+        vars.InstructionTask = 'Decide if the face presented on each trial is angry or happy. \n \n ANGRY - Left arrow key                         HAPPY - Right arrow key \n \n \n \n Press ''Space'' to start...';
+end
 vars.InstructionQ = 'Angry (L)     or     Happy (R)';
-vars.InstructionConf = 'Rate your confidence \n \n Unsure (1)     Sure (2)     Very sure (3)';
 vars.InstructionPause = 'Take a short break... \n \n When you are ready to continue, press ''Space''...';
 vars.InstructionEnd = 'You have completed the session. Thank you!';
 % N.B. Text colour and size are set after Screen('Open') call
@@ -52,17 +65,21 @@ for thisStim = 1:length(vars.StimsInDir)
     vars.StimList(thisStim) = getfield(vars.StimsInDir(thisStim), 'name');
 end
 StimTrialList = repmat(vars.StimList,vars.NTrials,1);
+
 % Randomize order of stimuli & move sequential duplicates                     
 ntrials = length(StimTrialList);
 randomorder = Shuffle(length(StimTrialList), 'index');   % Shuffle is faster than randperm
 vars.StimTrialList = StimTrialList(randomorder);
+
 for thisStim = 1:ntrials-1
     nextStim = thisStim+1;
     Stim_1 = vars.StimTrialList(thisStim);
     Stim_2 = vars.StimTrialList(nextStim);
+    
     % if two stim names are identical, move Stim_2 down and remove row
     if strcmp(Stim_1,Stim_2)    
         vars.StimTrialList = [vars.StimTrialList; Stim_2];
         vars.StimTrialList(nextStim)=[];
     end
+    
 end

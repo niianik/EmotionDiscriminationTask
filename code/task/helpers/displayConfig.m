@@ -11,7 +11,7 @@ function [scr] = displayConfig(scr)
 
 %% Set-up screen
 if length(Screen('Screens')) > 1
-    scr.ExternalMonitor = 1;% set to 1 for secondary monitor
+    scr.ExternalMonitor = 0;% set to 1 for secondary monitor
     % N.B. It's not optimal to use external monitor for newer Win systems
     % (Windows 7+) due to timing issues
 else
@@ -19,6 +19,7 @@ else
 end
 
 if scr.ExternalMonitor
+    scr.screenID = max(Screen('Screens'));              
     if ~isfield(scr,'MonitorHeight') || isempty(scr.MonitorHeight)
         scr.MonitorHeight = 30; end     % in cm 
     if ~isfield(scr,'MonitorWidth') || isempty(scr.MonitorWidth)
@@ -27,6 +28,7 @@ if scr.ExternalMonitor
         scr.ViewDist = 75; end
     scr.GammaGuess = 2.3;
 else % Laptop
+    scr.screenID = 1; 
     if ~isfield(scr,'MonitorHeight') || isempty(scr.MonitorHeight)
         scr.MonitorHeight = 16.5; end
     if ~isfield(scr,'MonitorWidth') || isempty(scr.MonitorWidth)
@@ -40,7 +42,6 @@ end
 PsychImaging('PrepareConfiguration');
 PsychImaging('AddTask', 'FinalFormatting', 'DisplayColorCorrection', 'SimpleGamma');
 
-scr.screenID = max(Screen('Screens'));              % Display on external monitor if there is one
 
 %% Colours and text params
 scr.BackgroundGray = GrayIndex(scr.screenID);

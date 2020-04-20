@@ -276,7 +276,7 @@ try
             DrawFormattedText(scr.win, vars.InstructionPause, 'center', 'center', scr.TextColour);
             [~, ~] = Screen('Flip', scr.win);
             
-            disp(['You have completed ', num2str(thisTrial), ' out of ', num2str(vars.NTrialsTotal), ' trials.']);
+            disp(['']);
             
             while KeyCode(keys.Space) == 0
                 [~, ~, KeyCode] = KbCheck;

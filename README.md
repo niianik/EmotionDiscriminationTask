@@ -22,7 +22,7 @@ and the run will take about 25 min in total.
 
 Want to participate? 
 
-1. Send me an e-mail (niianikolova [at] gmail [dot] com), and I will reply with a subjectd ID code, which you will enter when completing the task. 
+1. Send me an e-mail (niianikolova [at] gmail [dot] com), and I will reply with a subjectd ID code (3 digits, e.g. 001), which you will enter when completing the task. 
 2. Make sure you have a working installation of Matlab and Psychtoolbox (+ GStreamer).
 3. Download & save 'EmotionDiscriminationTask' to a directory.
       The directory should contain the following:

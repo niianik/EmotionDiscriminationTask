@@ -33,15 +33,11 @@ end
 % check working directory & change if necessary
 vars.workingDir = fullfile('EmotionDiscriminationTask');
 currentFolder = pwd;
-% correctFolder = contains(currentFolder, vars.workingDir);
-% if ~correctFolder                   % if we're not in the correct working directory, prompt to change
-%     disp(['Incorrect working directory. Please start from ', vars.workingDir]);return;
-% end
-
-% if we're not in the correct working directory, prompt to change
-if ~strcmp(currentFolder(end-length(vars.workingDir)+1:end), vars.workingDir)
-    disp(['Incorrect working directory. Please start from ', [vars.workingDir, filesep]]);return;
+correctFolder = contains(currentFolder, vars.workingDir);
+if ~correctFolder                   % if we're not in the correct working directory, prompt to change
+    disp(['Incorrect working directory. Please start from ', vars.workingDir]); return;
 end
+
 
 % setup path
 addpath(genpath('code'));

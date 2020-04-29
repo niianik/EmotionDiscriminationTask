@@ -29,7 +29,7 @@ Want to participate?
          main.m
          loadParams.m
          helpers (folder)
-4. Use a ruler to measure the height and width of your screen (in cm), and note the distance at which you are sitting from the display (the experiment will display on your primary screen). 
+4. Use a ruler to measure the height and width of your screen (in cm), and note the distance at which you are sitting from the display (default: 2nd screen if there is one). 
 
 5. To begin the experiment, add the 'EmotionDiscriminationTask' directory to the MATLAB path and 
 run 'experimentLauncher.m' (located in ./code/task).

@@ -21,18 +21,17 @@ and the run will take about 30 min in total.
 
 Want to participate? 
 
-1. Send me an e-mail (niianikolova [at] gmail [dot] com), and I will reply with a subjectd ID code (3 digits, e.g. 001), which you can enter when completing the task. 
+1. Get in touch with me (through Slack, or by sending me an e-mail (niianikolova [at] gmail [dot] com), and I will reply to you with a subject ID code (3 digits, e.g. 001), which you can enter when completing the task. 
 2. Make sure you have a working installation of Matlab and Psychtoolbox (+ GStreamer).
 3. Download & save 'EmotionDiscriminationTask' to a directory.
       The directory should contain the following:
+         ./code
+         ./data
+         ./stimuli
          experimentLauncher.m
-         main.m
-         loadParams.m
-         helpers (folder)
-4. Use a ruler to measure the height and width of your screen (in cm), and note the distance at which you are sitting from the display (the experiment will display on your primary screen). 
-
-5. To begin the experiment, add the 'EmotionDiscriminationTask' directory to the MATLAB path and 
-run 'experimentLauncher.m' (located in ./code/task).
+4. Use a ruler to measure the height and width of your screen (in cm), and note the distance at which you are sitting from the display (default: 2nd screen if there is one). 
+5. To begin the experiment, navigate to the 'EmotionDiscriminationTask' directory, and 
+run 'experimentLauncher.m'.
    You will be asked to enter basic demographic information, your subject ID, and display dimension and viewing distance. Note that the default screen dimensions are for a 13" laptop screen. Then, the run will begin. Press Esc to quit (partial results will be saved).
    
 6. When you have completed a run, the data will be saved in ./data/ with your subject ID. Please e-mail this file back to me. 

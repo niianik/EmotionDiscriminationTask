@@ -7,7 +7,7 @@ function experimentLauncher()
 % -------------- PRESS ESC TO EXIT ---------------------
 %
 % Niia Nikolova
-% Last edit: 08/04/2020
+% Last edit: 20/04/2020
 
 
 %% Initial settings

@@ -9,7 +9,7 @@ function main(vars, scr)
 %   scr         struct with screen / display settings
 % 
 % Niia Nikolova
-% Last edit: 08/04/2020
+% Last edit: 20/04/2020
 
 
 % Load the parameters

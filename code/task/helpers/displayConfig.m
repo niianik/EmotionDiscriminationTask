@@ -11,7 +11,7 @@ function [scr] = displayConfig(scr)
 
 %% Set-up screen
 if length(Screen('Screens')) > 1
-    scr.ExternalMonitor = 0;% set to 1 for secondary monitor
+    scr.ExternalMonitor = 1;% set to 1 for secondary monitor
     % N.B. It's not optimal to use external monitor for newer Win systems
     % (Windows 7+) due to timing issues
 else

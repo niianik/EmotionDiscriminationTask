@@ -28,7 +28,7 @@ if scr.ExternalMonitor
         scr.ViewDist = 75; end
     scr.GammaGuess = 2.3;
 else % Laptop
-    scr.screenID = 1; 
+    scr.screenID = min(Screen('Screens')); 
     if ~isfield(scr,'MonitorHeight') || isempty(scr.MonitorHeight)
         scr.MonitorHeight = 16.5; end
     if ~isfield(scr,'MonitorWidth') || isempty(scr.MonitorWidth)

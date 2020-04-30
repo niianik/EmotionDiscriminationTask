@@ -26,8 +26,9 @@ if ispc
     oldLevel = Screen('Preference', 'Verbosity', 0);
     Screen('Preference', 'SkipSyncTests', 1);
 elseif ismac || isunix
-    % Mac/Unix    ## Not tested ###                  
-    Screen('Preference', 'SkipSyncTests', 0);    
+    % Mac/Unix    ## Not tested ###  
+    oldLevel = Screen('Preference', 'Verbosity', 0);
+    Screen('Preference', 'SkipSyncTests', 1);    
 end
 
 % check working directory & change if necessary

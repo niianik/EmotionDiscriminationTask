@@ -68,7 +68,8 @@ StimTrialList = repmat(vars.StimList,vars.NTrials,1);
 
 % Randomize order of stimuli & move sequential duplicates                     
 ntrials = length(StimTrialList);
-randomorder = Shuffle(length(StimTrialList), 'index');   % Shuffle is faster than randperm
+randomorder = randperm(length(StimTrialList));             % Shuffle needs os-dependent .mex file
+% randomorder = Shuffle(length(StimTrialList), 'index');   % Shuffle is faster than randperm
 vars.StimTrialList = StimTrialList(randomorder);
 
 for thisStim = 1:ntrials-1

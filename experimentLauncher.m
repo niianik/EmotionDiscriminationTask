@@ -39,6 +39,10 @@ if ~correctFolder                   % if we're not in the correct working direct
     disp(['Incorrect working directory. Please start from ', vars.workingDir]); return;
 end
 
+% check for data dir
+if ~exist('data', 'dir')
+    mkdir('data')
+end
 
 % setup path
 addpath(genpath('code'));
@@ -46,7 +50,7 @@ addpath(genpath('data'));
 addpath(genpath('stimuli'));
 
 %% Ask for subID, age, gender, and display details
-vars.subNo = input('What is your subject number (given by the experimenter, e.g. 001)?   ');
+vars.subNo = input('What is your subject number (given by the experimenter, e.g. 001)?   ');      % make sure this is 3 digits
 vars.subAge = input('What is your age (# in years, e.g. 35)?   ');
 vars.subGen = input('What is your gender (f or m)?   ', 's');
 
@@ -67,7 +71,8 @@ scr.ViewDist = input('Input your viewing distance (cm). This is usually around 4
 
 %% Output
 vars.OutputFolder = fullfile('.', 'data', filesep);
-vars.DataFileName = strcat(vars.exptName, '_',num2str(vars.subNo), '_', date);   % name of data file to write to
+subIDstring = sprintf('%03d', vars.subNo);
+vars.DataFileName = strcat(vars.exptName, '_',subIDstring, '_', date);   % name of data file to write to
 if isfile(strcat(vars.OutputFolder, vars.DataFileName, '.mat'))
     % File already exists in Outputdir
     if vars.subNo ~= 999

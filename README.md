@@ -2,7 +2,7 @@
 
 README
 
-Thank you for your interst in completing the task!
+Thank you for your interst in doing this task!
 
 We aim to investigate how people discriminate between happy and angry facial expressions. 
 
@@ -29,10 +29,10 @@ Want to participate?
          ./data
          ./stimuli
          experimentLauncher.m
-4. Use a ruler to measure the height and width of your screen (in cm), and note the distance at which you are sitting from the display (default: 2nd screen if there is one). 
+4. Use a ruler to measure the height and width of your screen (in cm), and note the distance at which you are sitting from the display (default: 2nd screen if there is one). If you don't have a ruler, you can use the default values later, which are for a 13" screen
 5. To begin the experiment, navigate to the 'EmotionDiscriminationTask' directory, and 
 run 'experimentLauncher.m'.
-   You will be asked to enter basic demographic information, your subject ID, and display dimension and viewing distance. Note that the default screen dimensions are for a 13" laptop screen. Then, the run will begin. Press Esc to quit (partial results will be saved).
+   You will be asked to enter basic demographic information, your subject ID, and display dimension and viewing distance. If you leave the screen dimensions and viewing distance blank, the default size will be used. Then, the run will begin. Press Esc to quit (partial results will be saved).
    
 6. When you have completed a run, the data will be saved in ./data/ with your subject ID. Please e-mail this file back to me. 
 

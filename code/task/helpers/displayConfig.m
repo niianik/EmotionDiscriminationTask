@@ -48,7 +48,7 @@ scr.BackgroundGray = GrayIndex(scr.screenID);
 White = WhiteIndex(scr.screenID);
 Black = BlackIndex(scr.screenID);
 scr.TextColour = Black;
-scr.TextSize = 64;
+scr.TextSize = 50;
 
 
 end
